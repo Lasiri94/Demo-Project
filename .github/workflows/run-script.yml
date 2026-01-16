@@ -1,0 +1,21 @@
+
+name: Run Python Greeting Script
+
+on:
+  workflow_dispatch:    # Allows manual runs
+
+jobs:
+  run-greeting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository files
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Run greet.py
+        run: python greet.py
